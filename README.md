@@ -51,7 +51,7 @@ Welcome to **Market Forecast (Crypto & Stocks)** — a powerful LSTM-based forec
 
 | Type | Example Symbols |
 |------|-----------------|
-| Cryptocurrency | `BTC`, `ETH`, `DOGE` |
+| Cryptocurrency | `BTC`, `ETH`, `DOGE`, `AVAX` |
 | NSE India Stocks | `TCS.NS`, `INFY.NS`, `IRCTC.NS`, `^NSEI` |
 | US Stocks | `AAPL`, `TSLA`, `GOOGL` |
 
@@ -70,3 +70,9 @@ git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
 pip install -r requirements.txt
 streamlit run app.py
+
+
+## 🙌 Author
+
+Developed by SYED AMASH S
+📧 Reach out: [Syed-Amash-LinkedIn](www.linkedin.com/in/syed-amash-s-457580356) | syedamash.tce@gmail.com
