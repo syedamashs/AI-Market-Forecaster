@@ -80,4 +80,4 @@ streamlit run Market_Forecast_(Crypto & Stocks).py
 ## 🙌 Author
 
 Developed by SYED AMASH S<br>
-📧 Reach out: [Syed-Amash-LinkedIn](www.linkedin.com/in/syed-amash-s-457580356) | syedamash.tce@gmail.com
+📧 Reach out: [Syed-Amash-LinkedIn](https://linkedin.com/in/syed-amash-s-457580356) | syedamash.tce@gmail.com
