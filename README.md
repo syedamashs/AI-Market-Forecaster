@@ -18,7 +18,11 @@ Welcome to **Market Forecast (Crypto & Stocks)** — a powerful LSTM-based forec
 
 ## 🖼️ Screenshot
 
-![App Screenshot](https://via.placeholder.com/1000x400?text=Screenshot+coming+soon)
+![App Screenshot](1.PNG) <br><br>
+
+![Stock Fetching](2.PNG) <br><br>
+
+![Future Trends](3.PNG) <br><br>
 
 ---
 
@@ -75,5 +79,5 @@ streamlit run app.py
 
 ## 🙌 Author
 
-Developed by SYED AMASH S
+Developed by SYED AMASH S<br>
 📧 Reach out: [Syed-Amash-LinkedIn](www.linkedin.com/in/syed-amash-s-457580356) | syedamash.tce@gmail.com
