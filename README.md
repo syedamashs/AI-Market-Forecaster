@@ -18,11 +18,11 @@ Welcome to **Market Forecast (Crypto & Stocks)** — a powerful LSTM-based forec
 
 ## 🖼️ Screenshot
 
-![App Screenshot](1.PNG) <br><br>
+![App Screenshot](utils/1.PNG) <br><br>
 
-![Stock Fetching](2.PNG) <br><br>
+![Stock Fetching](utils/2.PNG) <br><br>
 
-![Future Trends](3.PNG) <br><br>
+![Future Trends](utils/3.PNG) <br><br>
 
 ---
 
@@ -70,10 +70,10 @@ Welcome to **Market Forecast (Crypto & Stocks)** — a powerful LSTM-based forec
 ## 📥 Run It Locally
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/syedamashs/Market-Forecast.git
+cd Market-Forecast
 pip install -r requirements.txt
-streamlit run app.py
+streamlit run Market_Forecast_(Crypto & Stocks).py
 
 ```
 
