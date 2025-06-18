@@ -71,6 +71,7 @@ cd your-repo-name
 pip install -r requirements.txt
 streamlit run app.py
 
+```
 
 ## 🙌 Author
 
