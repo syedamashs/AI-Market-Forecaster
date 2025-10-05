@@ -1,8 +1,3 @@
-"""
-LSTM-based price forecasting script with same interface as GRU.py
-
-Provides `train_lstm_from_series(data, ...)` returning the same result dict.
-"""
 from datetime import timedelta
 import numpy as np
 import pandas as pd
@@ -63,8 +58,9 @@ def train_lstm_from_series(data, seq_len=60, epochs=5, batch_size=64, predict_da
 
     scaler = MinMaxScaler()
     scaler.fit(series.iloc[:train_end].values.reshape(-1, 1))
-
     scaled_all = scaler.transform(series.values.reshape(-1, 1))
+
+
     X_all, y_all = build_sequences(scaled_all, seq_len)
 
     sample_target_indices = np.arange(seq_len, n)

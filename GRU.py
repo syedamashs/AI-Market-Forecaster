@@ -1,16 +1,3 @@
-"""
-GRU-based price forecasting script.
-
-Usage (example):
-    python GRU.py --ticker BTC-USD --predict_days 30
-
-This script:
-- downloads Close prices with yfinance
-- builds time-series sequences (seq_len=60)
-- fits a GRU model on a time-aware train split
-- evaluates on a held-out test set using MAE, RMSE, MAPE
-- produces a multi-day recursive forecast and saves it to CSV
-"""
 import argparse
 from datetime import timedelta
 import numpy as np
@@ -55,10 +42,6 @@ def evaluate(y_true, y_pred):
 
 
 def train_gru_from_series(data, seq_len=60, epochs=10, batch_size=64, predict_days=30, train_frac=0.8, val_frac=0.1):
-    """Train GRU on a pandas Series or DataFrame with one column Close.
-
-    Returns a dict: {"model": model, "metrics": {...}, "future_df": DataFrame, "test_df": DataFrame}
-    """
     tf.random.set_seed(42)
     np.random.seed(42)
 
@@ -110,8 +93,7 @@ def train_gru_from_series(data, seq_len=60, epochs=10, batch_size=64, predict_da
         y_test_inv = scaler.inverse_transform(y_test)
         mae, rmse, mape = evaluate(y_test_inv, pred_test_inv)
         results['metrics'] = {'mae': float(mae), 'rmse': float(rmse), 'mape': float(mape)}
-        # build test dataframe aligned with original dates
-        # test target indices correspond to sample_target_indices[test_mask]
+
         test_target_idx = sample_target_indices[test_mask]
         test_dates = series.index[test_target_idx]
         test_df = pd.DataFrame({'Close': y_test_inv.flatten(), 'Predictions': pred_test_inv.flatten()}, index=test_dates)

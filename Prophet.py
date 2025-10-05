@@ -1,14 +1,3 @@
-"""
-Prophet (Facebook/Meta) forecasting module.
-
-Provides `train_prophet_from_series(data, ...)` returning a dict with keys:
- - model: fitted Prophet model (trained on full series for forecasting)
- - metrics: {'mae','rmse','mape'} evaluated on test set (model trained on train split)
- - test_df: dataframe with Close and Predictions for test period
- - future_df: dataframe with future forecasts (next predict_days)
-
-Requires `prophet` (or `fbprophet`) package installed.
-"""
 from datetime import timedelta
 import numpy as np
 import pandas as pd
@@ -38,10 +27,6 @@ def evaluate(y_true, y_pred):
 
 
 def train_prophet_from_series(data, predict_days=30, train_frac=0.8, val_frac=0.1):
-    """Train Prophet and return metrics + future forecast.
-
-    data: pd.DataFrame with DateTime index and 'Close' column
-    """
     if isinstance(data, pd.DataFrame):
         series = data['Close']
     else:
