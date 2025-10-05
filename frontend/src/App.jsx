@@ -2,18 +2,16 @@ import { useEffect, useState } from "react";
 import CryptoCard from "./components/CryptoCard";
 import StockCard from "./components/StockCard";
 import './App.css';
-import axios from 'axios';
 
 function App() {
   const [coins, setCoins] = useState([]);
   const [stocks, setStocks] = useState([]);
-  const [market, setMarket] = useState('crypto'); // 'crypto' or 'stocks'
+  const [market, setMarket] = useState('crypto'); 
   const [search, setSearch] = useState("");
-  const [selectedItem, setSelectedItem] = useState(null); // for modal
+  const [selectedItem, setSelectedItem] = useState(null); 
 
-  const apiKey = 'd3h7depr01qstnq80tm0d3h7depr01qstnq80tmg';
+  const apiKey = "d3h7depr01qstnq80tm0d3h7depr01qstnq80tmg";
 
-  // Load crypto coins on mount
   useEffect(() => {
     fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd")
       .then(res => res.json())
@@ -21,7 +19,6 @@ function App() {
       .catch(err => console.error("Error fetching coins!!", err));
   }, []);
 
-  // Crypto filtered list (prefix search)
   const filteredCoins = coins.filter((coin) =>
     coin.name.toLowerCase().startsWith(search.toLowerCase())
   );
@@ -36,7 +33,6 @@ function App() {
     setStocks([]);
   };
 
-  // Stock search using Finnhub
   const searchStocks = async (query) => {
     if (!query || !query.trim()) {
       setStocks([]);
@@ -46,7 +42,6 @@ function App() {
     const q = query.trim().toUpperCase();
 
     try {
-      // Search symbols
       const searchRes = await fetch(`https://finnhub.io/api/v1/search?q=${q}&token=${apiKey}`);
       const searchData = await searchRes.json();
       const results = searchData.result || [];
@@ -54,11 +49,8 @@ function App() {
         setStocks([]);
         return;
       }
-
-      // Top 20
       const topResults = results.slice(0, 20);
 
-      // Fetch quote for each
       const mapped = await Promise.all(topResults.map(async (item) => {
         const symbol = item.symbol;
         try {
@@ -97,12 +89,7 @@ function App() {
 
       <header className="app-header">
         <div className="market-toggle">
-          <input 
-          type="checkbox" 
-          id="marketSwitch" 
-          checked={market === 'stocks'}
-          onChange={() => toggleMarket(market === 'crypto' ? 'stocks' : 'crypto')}
-        />
+          <input type="checkbox" id="marketSwitch" checked={market === 'stocks'} onChange={() => toggleMarket(market === 'crypto' ? 'stocks' : 'crypto')} />
         <label htmlFor="marketSwitch">
           <span className="toggle-left">Crypto</span>
           <span className="toggle-right">Stocks</span>
@@ -118,11 +105,7 @@ function App() {
           <h1 className="app-title">{market === 'crypto' ? 'Crypto-Tracker' : 'Stock-Tracker'}</h1><br />
 
           <div className={`search-container`}>
-            <input
-              type="text"
-              placeholder={market === 'crypto' ? "Search coins (e.g. Bitcoin, Ethereum)" : "Search stocks (e.g. MSFT, AAPL)"}
-              value={search}
-              onChange={(e) => {
+            <input type="text" placeholder={market === 'crypto' ? "Search coins (e.g. Bitcoin, Ethereum)" : "Search stocks (e.g. MSFT, AAPL)"} value={search} onChange={(e) => {
                 const v = e.target.value;
                 setSearch(v);
                 if (market === 'stocks') searchStocks(v);

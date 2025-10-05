@@ -25,8 +25,8 @@ function StockCard(props) {
   return (
     <div 
     className="card shadow-sm h-100 text-center stock-card border-0"
-    onClick={props.onClick}       // <-- add this
-    style={{ cursor: 'pointer' }} // <-- add this>
+    onClick={props.onClick}      
+    style={{ cursor: 'pointer' }} 
     >
       <div className="card-body d-flex flex-column justify-content-center align-items-center">
         <img
