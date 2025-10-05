@@ -5,7 +5,11 @@ function CryptoCard(props){
     const isProfit = Number(props.change) >= 0;
 
     return (
-        <div className="card shadow-sm h-100 text-center crypto-card border-0">
+        <div 
+            className="card shadow-sm h-100 text-center crypto-card border-0"
+            onClick={props.onClick}       // <-- add this
+            style={{ cursor: 'pointer' }} // <-- add this
+        >
             <div className="card-body d-flex flex-column justify-content-center align-items-center">
                 <img src={props.image} alt={props.name} className="mb-2" style={{width:"40px" , height:"40px"}} />
                 <h5 className="card-title">{props.name}</h5>

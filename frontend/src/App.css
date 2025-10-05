@@ -120,3 +120,104 @@
 	flex-wrap: wrap;
 }
 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  min-width: 300px;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: red;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Market toggle switch */
+.market-toggle {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.market-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.market-toggle label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ddd;
+  border-radius: 30px;
+  cursor: pointer;
+  position: relative;
+  height: 100%;
+  padding: 0 5px;
+  box-sizing: border-box;
+  transition: background-color 0.3s;
+}
+
+.market-toggle label .toggle-left,
+.market-toggle label .toggle-right {
+  z-index: 2;
+  width: 50%;
+  text-align: center;
+  font-weight: bold;
+  user-select: none;
+  font-size: 14px;
+  color: #555;
+}
+
+.market-toggle label .toggle-slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 50%;
+  height: 34px;
+  background-color: #4CAF50;
+  border-radius: 30px;
+  transition: transform 0.3s;
+  z-index: 1;
+}
+
+/* When checked, move the slider */
+.market-toggle input:checked + label .toggle-slider {
+  transform: translateX(90%);
+}
+
+/* Active text color */
+.market-toggle input:checked + label .toggle-right {
+  color: white;
+}
+.market-toggle input:not(:checked) + label .toggle-left {
+  color: white;
+}
